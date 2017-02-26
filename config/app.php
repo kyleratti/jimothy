@@ -179,6 +179,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Custom stuff
+         */
+        Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
+
     ],
 
     /*
