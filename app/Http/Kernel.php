@@ -58,6 +58,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'isadmin' => \App\Http\Middleware\CheckIsAdmin::class,
         'isasuperdmin' => \App\Http\Middleware\CheckIsSuperAdmin::class,
-        'iisowner' => \App\Http\Middleware\CheckIsOwner::class,
+        'isowner' => \App\Http\Middleware\CheckIsOwner::class,
     ];
 }
