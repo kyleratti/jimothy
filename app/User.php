@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'steam64', 'steam_name', 'email', 'avatar', 'group'
     ];
 
     /**
@@ -24,6 +24,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
     ];
+
+    public function isAdmin() {
+        return true;
+    }
+
+    public function isSuperAdmin() {
+        return true;
+    }
+
+    public function isOwner() {
+        return true;
+    }
 }
