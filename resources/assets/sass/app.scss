@@ -1,9 +1,114 @@
+body {
+  background-color: #f2f2f2;
+  color: #636b6f;
+  font-family: Verdana;
+}
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+.header {
+  text-align: center;
+  background: #680611;
+  background-size: cover;
+  position: relative;
+  overflow: visible;
+  padding-top: 1.9rem;
+  padding-bottom: 2.3rem;
+}
 
-// Variables
-@import "variables";
+.header .headline {
+  display: inline-block;
+  color: #ffe;
+  padding-left: 0.1rem;
+  vertical-align: top;
+}
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+.header .headline small {
+  color: #ab9393;
+  font-size: 0.25em;
+}
+
+.header-subnav {
+  float: none;
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+  bottom: 0;
+  width: 100%;
+}
+.header-subnav li {
+  float: none;
+  display: inline-block;
+}
+
+.header-subnav li a {
+  padding: 0.4rem 0.5rem;
+  font-size: 0.75rem;
+  color: #ffe;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.35s ease-in-out;
+}
+
+.header-subnav li a.is-active {
+  background: rgba(250, 250, 250, 0.15);
+}
+
+.header-subnav li a:hover {
+  background: rgba(250, 250, 250, 0.15);
+  transition: all 0.35s ease-in-out;
+}
+
+.main, footer, .footer {
+  padding: 2em;
+}
+
+footer, .footer {
+  margin-top: 1em;
+  text-align: right;
+  font-size: 0.7em;
+}
+
+.logo {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  background-image: url('/img/senor_banana.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid black;
+}
+
+.table, .table th {
+  text-align: center;
+}
+
+.table select, .table .switch.tiny, .table a {
+  margin-bottom: 0;
+}
+
+.category {
+  border: 1px solid black;
+  margin-bottom: 0.7rem;
+}
+
+.category-name {
+  background: #680611;
+  color: #ffe;
+  padding: 0.5rem;
+}
+
+.category-name h5 {
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.board {
+  padding: 0.5rem;
+}
+
+.board .board-stats, .board .board-activity {
+  text-align: right;
+}
