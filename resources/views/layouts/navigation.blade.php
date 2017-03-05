@@ -4,7 +4,6 @@
     @if(Auth::check())
         <li><a href="{{ route('game.bans') }}">Bans</a></li>
         <li><a href="{{ route('game.top-players') }}">Top Players</a></li>
-        <li><a href="{{ route('forum.user.list') }}">Members</a></li>
         @if(Auth::user()->isAdmin())
             <li><a href="{{ route('game.admin.logs') }}">Logs</a></li>
         @endif
