@@ -15,8 +15,8 @@
     </head>
     <body>
         <header class="header">
-            <div class="logo"></div>
-            <h1 class="headline">{{ config('app.name') }} <small>{{ config('app.tagline') }}</small></h1>
+            <a href="{{ route('forum.index') }}"><div class="logo"></div></a>
+            <a href="{{ route('forum.index') }}"><h1 class="headline">{{ config('app.name') }} <small>{{ config('app.tagline') }}</small></h1></a>
 
             @include('layouts.navigation')
         </header>
