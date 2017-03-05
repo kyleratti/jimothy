@@ -6,13 +6,15 @@
     <div class="category">
         <div class="category-name">
             <div class="row">
-                <div class="medium-{{ $bInAdminMode ? '11' : '12' }} columns">
+                <div class="medium-{{ $bInAdminMode ? '10' : '12' }} columns">
                     <h5>{!! $objCategory->icon ? '<span class="fi-'.$objCategory->icon.'"></span>' : '' !!} {{ $objCategory->name }}</h5>
                 </div>
 
                 @if($bInAdminMode)
-                    <div class="medium-1 columns">
+                    <div class="medium-2 columns">
                         <div class="category-admin">
+                            <div class="inline-admin"><a href="#" title="Move this category up"><span class="fi-arrow-up"></span></a></div>
+                            <div class="inline-admin"><a href="#" title="Move this category down"><span class="fi-arrow-down"></span></a></div>
                             <div class="inline-admin"><a href="#" title="Modify this category"><span class="fi-pencil"></span></a></div>
                             <div class="inline-admin"><a href="#" title="Add a board to this category"><span class="fi-plus"></span></a></div>
                         </div>
