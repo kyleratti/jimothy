@@ -16,14 +16,21 @@ class BoardCategorySeeder extends Seeder
             'name' => 'Staff Land',
             'icon' => 'key',
             'weight' => 1,
-            'collapsible' => 1,
+            'collapsible' => true,
         ]);
 
         BoardCategory::create([
             'name' => 'General Stuff',
             'icon' => 'comments',
             'weight' => 2,
-            'collapsible' => 1,
+            'collapsible' => true,
+        ]);
+
+        BoardCategory::create([
+            'name' => 'Waste Management',
+            'icon' => 'trash',
+            'weight' => 3,
+            'collapsible' => true,
         ]);
     }
 }
