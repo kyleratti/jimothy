@@ -10,7 +10,8 @@ elseif($iHour > 12)
 
 {{-- TODO: set a designated announcement forum, grab it from there --}}
 
-<h1>{{ $strWord }} Announcements</h1>
+<h1><span class="fi-megaphone"></span> {{ $strWord }} Announcements</h1>
 <ul>
-    <li>One day there will be announcements here. But today is not that day. :(</li>
+    <li>One day there will be announcements here. But today is not that day.</li>
+    <li>And perhaps a second one, too.</li>
 </ul>
