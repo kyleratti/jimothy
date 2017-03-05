@@ -13,9 +13,8 @@
 
 // Forum routes
 
-Route::get('/', function () {
-    return view('index');
-})->name('forum.index');
+Route::get('/', 'ForumController@showFrontPage')
+    ->name('forum.index');
 
 Route::get('/user/login', function() {
     return view('forum.user.login');
