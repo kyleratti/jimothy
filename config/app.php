@@ -13,6 +13,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Unknown.'),
+    'tagline' => env('APP_TAGLINE', ''),
 
     'codename' => 'jimothy',
 
