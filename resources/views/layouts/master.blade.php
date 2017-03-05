@@ -10,12 +10,13 @@
         <title>@yield('title') - {{ config('app.name') }}</title>
 
         <link rel="stylesheet" type="text/css" href="{{ url('css/foundation.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('css/foundation-icons.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('css/app.css') }}">
     </head>
     <body>
         <header class="header">
             <div class="logo"></div>
-            <h1 class="headline">{{ config('app.name') }} <small>made possible by bananalord</small></h1>
+            <h1 class="headline">{{ config('app.name') }} <small>owned by fruit industries</small></h1>
 
             @include('layouts.navigation')
         </header>
