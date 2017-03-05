@@ -16,7 +16,7 @@
     <body>
         <header class="header">
             <a href="{{ route('forum.index') }}"><div class="logo"></div></a>
-            <a href="{{ route('forum.index') }}"><h1 class="headline">{{ config('app.name') }} <small>{{ config('app.tagline') }}</small></h1></a>
+            <a href="{{ route('forum.index') }}"><h1 class="headline">{{ config('app.name') }} <small class="show-for-medium">{{ config('app.tagline') }}</small></h1></a>
 
             @include('layouts.navigation')
         </header>
@@ -25,7 +25,7 @@
             @yield('main')
         </div>
 
-        <footer class="footer">
+        <footer class="footer show-for-medium">
             Served by {{ config('app.codename') }}. Good boy.
         </footer>
     </body>
