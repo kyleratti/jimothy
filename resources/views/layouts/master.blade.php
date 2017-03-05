@@ -16,7 +16,7 @@
     <body>
         <header class="header">
             <div class="logo"></div>
-            <h1 class="headline">{{ config('app.name') }} <small>owned by fruit industries</small></h1>
+            <h1 class="headline">{{ config('app.name') }} <small>{{ config('app.tagline') }}</small></h1>
 
             @include('layouts.navigation')
         </header>
