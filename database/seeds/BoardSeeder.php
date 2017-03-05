@@ -13,9 +13,16 @@ class BoardSeeder extends Seeder
     public function run()
     {
         Board::create([
-            'name' => 'Important Stuff',
-            'description' => 'You should probably read these',
+            'name' => 'Staff Discussion',
+            'description' => 'Talk about crap here',
             'weight' => 1,
+            'category' => 1
+        ]);
+
+        Board::create([
+            'name' => 'Known Issues',
+            'description' => 'Read about stuff I\'m not going to be fixing',
+            'weight' => 2,
             'category' => 1
         ]);
 

@@ -13,13 +13,15 @@ class BoardCategorySeeder extends Seeder
     public function run()
     {
         BoardCategory::create([
-            'name' => 'Announcements',
+            'name' => 'Staff Land',
+            'icon' => 'key',
             'weight' => 1,
             'collapsible' => 1,
         ]);
 
         BoardCategory::create([
             'name' => 'General Stuff',
+            'icon' => 'comments',
             'weight' => 2,
             'collapsible' => 1,
         ]);
