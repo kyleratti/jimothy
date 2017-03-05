@@ -12,6 +12,7 @@ class BoardSeeder extends Seeder
      */
     public function run()
     {
+        // Staff section
         Board::create([
             'name' => 'Staff Discussion',
             'description' => 'Talk about crap here',
@@ -21,15 +22,30 @@ class BoardSeeder extends Seeder
 
         Board::create([
             'name' => 'Known Issues',
-            'description' => 'Read about stuff I\'m not going to be fixing',
+            'description' => 'Read about stuff I know is broken & won\'t fix',
             'weight' => 2,
             'category' => 1
         ]);
 
+        // General section
+        Board::create([
+            'name' => 'General Discussion',
+            'description' => 'Wow us with how deep you are bro',
+            'weight' => 1,
+            'category' => 2
+        ]);
+
         Board::create([
             'name' => 'Server Chat',
-            'description' => 'Go online to talk about the online server',
-            'weight' => 1,
+            'description' => 'Go to the website to talk about the server',
+            'weight' => 2,
+            'category' => 2
+        ]);
+
+        Board::create([
+            'name' => 'Tech Stuff',
+            'description' => 'Rant and rave about technology here',
+            'weight' => 3,
             'category' => 2
         ]);
     }
