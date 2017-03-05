@@ -12,7 +12,7 @@ class BoardCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'weight', 'collapsible'
+        'name', 'icon', 'weight', 'collapsible'
     ];
 
     /**
