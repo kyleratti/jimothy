@@ -4,4 +4,6 @@
 
 @section('content')
     @include('forum.board.show-all')
+
+    @include('forum.board.stats')
 @stop
