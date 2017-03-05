@@ -1,9 +1,14 @@
-{{-- TODO: check if there are announcements before showing them --}}
-<div class="announcements">
-    @include('announcements.show')
-</div>
+@extends('layouts.master')
 
-{{-- TODO: list sections for each forum and each board here --}}
-<div class="forum">
-    { insert forum list here }
-</div>
+@section('main')
+    @if(Route::currentRouteName() == 'forum.index')
+        {{-- TODO: check if there are announcements before showing them --}}
+        <div class="announcements callout">
+            @include('announcements.show')
+        </div>
+    @endif
+
+    <div class="forum">
+        @yield('content')
+    </div>
+@stop
