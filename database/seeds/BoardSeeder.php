@@ -15,7 +15,7 @@ class BoardSeeder extends Seeder
         // Staff section
         Board::create([
             'name' => 'Staff Discussion',
-            'description' => 'Talk about crap here',
+            'description' => 'Talk crap about players here',
             'weight' => 1,
             'category' => 1
         ]);
@@ -30,7 +30,7 @@ class BoardSeeder extends Seeder
         // General section
         Board::create([
             'name' => 'General Discussion',
-            'description' => 'Wow us with how deep you are bro',
+            'description' => 'Talk crap about banana here',
             'weight' => 1,
             'category' => 2
         ]);
@@ -47,6 +47,21 @@ class BoardSeeder extends Seeder
             'description' => 'Rant and rave about technology here',
             'weight' => 3,
             'category' => 2
+        ]);
+
+        // Garbage section
+        Board::create([
+            'name' => 'Garbage Can',
+            'description' => 'Aim for your thread to end up here',
+            'weight' => 1,
+            'category' => 3
+        ]);
+
+        Board::create([
+            'name' => 'Recycling Plant',
+            'description' => 'Tell us why you should be re-used, not recycled',
+            'weight' => 2,
+            'category' => 3
         ]);
     }
 }
