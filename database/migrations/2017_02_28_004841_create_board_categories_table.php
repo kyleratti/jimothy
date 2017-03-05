@@ -16,6 +16,7 @@ class CreateBoardCategoriesTable extends Migration
         Schema::create('board_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 20)->index();
+            $table->string('icon', 32)->nullable()->index();
             $table->integer('weight')->unsigned()->unique()->index();
             $table->boolean('collapsible')->default(true);
             $table->timestamps();
