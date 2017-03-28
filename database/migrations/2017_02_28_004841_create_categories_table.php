@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBoardCategoriesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateBoardCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('board_categories', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 20)->index();
+            $table->string('slug', 20)->nullable()->unique();
             $table->string('icon', 32)->nullable()->index();
             $table->integer('weight')->unsigned()->unique()->index();
             $table->boolean('collapsible')->default(true);
@@ -30,6 +31,6 @@ class CreateBoardCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('board_categories');
+        Schema::dropIfExists('categories');
     }
 }

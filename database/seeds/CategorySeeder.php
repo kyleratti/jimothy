@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\BoardCategory;
+use App\Category;
 
-class BoardCategorySeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,21 +12,21 @@ class BoardCategorySeeder extends Seeder
      */
     public function run()
     {
-        BoardCategory::create([
+        Category::create([
             'name' => 'Staff Land',
             'icon' => 'key',
             'weight' => 1,
             'collapsible' => true,
         ]);
 
-        BoardCategory::create([
+        Category::create([
             'name' => 'General Stuff',
             'icon' => 'comments',
             'weight' => 2,
             'collapsible' => true,
         ]);
 
-        BoardCategory::create([
+        Category::create([
             'name' => 'Waste Management',
             'icon' => 'trash',
             'weight' => 3,

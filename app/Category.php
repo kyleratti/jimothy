@@ -2,17 +2,24 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
-class BoardCategory extends Model
+class Category extends Model
 {
+    use Sluggable;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'icon', 'weight', 'collapsible'
+        'name',
+        'slug',
+        'icon',
+        'weight',
+        'collapsible'
     ];
 
     /**
@@ -22,4 +29,12 @@ class BoardCategory extends Model
      */
     protected $hidden = [
     ];
+
+    public function sluggable() {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 }
