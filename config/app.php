@@ -165,6 +165,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -184,6 +185,7 @@ return [
          * Custom stuff
          */
         Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
+        Kodeine\Acl\AclServiceProvider::class,
 
     ],
 

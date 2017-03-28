@@ -1,3 +1,5 @@
+<button class="button alert"><span class="fi-plus"></span> Add a board</button>
+
 <fieldset class="fieldset">
     <legend>Add a board</legend>
 

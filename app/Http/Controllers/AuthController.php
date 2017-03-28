@@ -29,7 +29,13 @@ class AuthController extends Controller
                         'steam_name' => $info->personaname,
                         'avatar' => $info->avatarfull
                     ]);
+
+                    if($user->id == 1)
+                        $user->assignRole('owner', 'superadmin', 'admin');
+                    else
+                        $user->assignRole('guest');
                 }
+
                 Auth::login($user, true);
                 return redirect()->route('forum.index'); // redirect to site
             }

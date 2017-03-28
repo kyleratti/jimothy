@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Group;
+use Kodeine\Acl\Models\Eloquent\Role;
 
 class GroupController extends Controller
 {
     public function showGroups() {
         return view('forum.admin.board.groups', [
-            'objGroups' => Group::all()
+            'objRoles' => Role::all()
         ]);
     }
 
@@ -43,12 +43,6 @@ class GroupController extends Controller
 
         if($objGroup)
             dd("GROUP EXISTS");
-
-        Group::create([
-            'name' => $strGroupName,
-            'inherits_from' => isset($objInheritedGroup) ? $objInheritedGroup->name : null,
-            'enabled' => true
-        ]);
 
         return redirect()->route('forum.admin.board.groups');
     }

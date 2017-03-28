@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Thread;
 use Illuminate\Http\Request;
 use App\Board;
 use App\BoardCategory;
@@ -25,6 +26,32 @@ class BoardController extends Controller
             'objBoards' => Board::all(),
             'objCatBoards' => $objCatBoards,
         ]);
+    }
+
+    public function showBoard(Board $objBoard) {
+        //$objBoard = Board::where('slug', $strBoardSlug)->first();
+
+        if($objBoard) {
+            $iBoardID = $objBoard->id;
+            $objStickyThreads = Thread::where([
+                ['board', $iBoardID],
+                ['sticky', true],
+                ['deleted', false]
+            ])->get();
+
+            $objThreads = Thread::where([
+                ['board', $iBoardID],
+                ['deleted', false]
+            ])->get();
+
+            return view('forum.board.show', [
+                'objBoard' => $objBoard,
+                'objStickyThreads' => $objStickyThreads,
+                'objThreads' => $objThreads
+            ]);
+        }
+
+        return view('forum.board.show-all');
     }
 
     public function createCategory(Request $objRequest) {

@@ -16,6 +16,7 @@ class CreateBoardsTable extends Migration
         Schema::create('boards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 20)->index();
+            $table->string('slug', 20)->nullable()->unique();
             $table->string('description', 128);
             $table->integer('category')->unsigned()->index();
             $table->integer('weight')->unsigned()->index();

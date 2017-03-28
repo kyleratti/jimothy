@@ -5,7 +5,7 @@ namespace App;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
-class Board extends Model
+class Thread extends Model
 {
     use Sluggable;
 
@@ -15,12 +15,13 @@ class Board extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'title',
         'slug',
-        'description',
-        'category',
-        'weight',
-        'enabled',
+        'board',
+        'owner',
+        'sticky',
+        'locked',
+        'deleted',
     ];
 
     /**
@@ -34,7 +35,7 @@ class Board extends Model
     public function sluggable() {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => 'title'
             ]
         ];
     }

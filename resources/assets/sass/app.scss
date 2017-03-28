@@ -87,28 +87,95 @@ footer, .footer {
   margin-bottom: 0;
 }
 
+.main {
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.announcements h3 {
+  font-weight: bold;
+}
+
 .category {
   border: 1px solid black;
   margin-bottom: 0.7rem;
 }
 
-.category-name {
+.category .row, .board .row, .threads .row {
+  max-width: none;
+}
+
+.category-name, .board-name {
   background: #680611;
   color: #ffe;
   padding: 0.5rem;
+  text-align: left;
+  border-bottom: 3px solid black;
 }
 
-.category-name h5 {
+.category-name h5, .board-name h5 {
   margin: 0;
   font-weight: bold;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
 
+.board-name h5 small {
+  font-size: 0.6em;
+  letter-spacing: normal;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.category-admin {
+  text-align: right;
+}
+
+.category-admin a {
+  color: #ffe;
+}
+
+.category-admin a:hover {
+  color: #c8b7b7;
+}
+
+.inline-admin {
+  display: inline-block;
+  margin: 0.1em;
+}
+
 .board {
+  background-color: #fff;
   padding: 0.5rem;
+  border-bottom: 1px solid black;
+}
+
+.board:hover {
+  background-color: #ffe9e9;
+}
+
+.board:last-child {
+  border-bottom: 0;
+}
+
+a {
+  color: #9c0612;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #680611;
 }
 
 .board .board-stats, .board .board-activity {
   text-align: right;
+  font-size: 0.8em;
+}
+
+.board .board-description {
+  font-size: 0.6em;
+}
+
+.go-newest-post {
 }

@@ -27,15 +27,15 @@
             <div class="board">
                 <div class="row">
                     <div class="small-6 columns board-title">
-                        <a href="{{ route('forum.board.show', ['iBoardID' => $objThisBoard->id]) }}" title="{{ $objThisBoard->description }}">{{ $objThisBoard->name }}</a> <span class="board-description show-for-medium">{{ $objThisBoard->description }}</span>
+                        <a href="{{ route('forum.board.show', ['strBoardSlug' => $objThisBoard['objBoard']->slug]) }}" title="{{ $objThisBoard['objBoard']->description }}">{{ $objThisBoard['objBoard']->name }}</a> <span class="board-description show-for-medium">{{ $objThisBoard['objBoard']->description }}</span>
                     </div>
 
                     <div class="small-3 columns board-stats">
-                        <b>25</b> posts / <b>8</b> threads
+                        <b>{{ $objThisBoard['iTotalReplies'] }}</b> post{{ $objThisBoard['iTotalReplies'] == 1 ? '' : 's' }} / <b>{{ $objThisBoard['iTotalThreads'] }}</b> thread{{ $objThisBoard['iTotalThreads'] == 1 ? '' : 's' }}
                     </div>
 
                     <div class="small-3 columns board-activity">
-                        <a href="#">Some thread</a> @ 7:14pm <a href="#"><span class="fi-arrow-right go-newest-post"></span></a>
+                        <a href="#">{{ $objThisBoard['arrLastReply']['thread_title'] }}</a> @ 7:14pm <a href="#"><span class="fi-arrow-right go-newest-post"></span></a>
                     </div>
                 </div>
             </div>

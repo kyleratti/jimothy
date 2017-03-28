@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'isadmin' => \App\Http\Middleware\CheckIsAdmin::class,
         'isasuperdmin' => \App\Http\Middleware\CheckIsSuperAdmin::class,
         'isowner' => \App\Http\Middleware\CheckIsOwner::class,
+        'acl' => \Kodeine\Acl\Middleware\HasPermission::class
     ];
 }

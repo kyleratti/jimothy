@@ -5,9 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Kodeine\Acl\Traits\HasRole;
+
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRole;
 
     /**
      * The attributes that are mass assignable.
@@ -25,16 +27,4 @@ class User extends Authenticatable
      */
     protected $hidden = [
     ];
-
-    public function isAdmin() {
-        return true;
-    }
-
-    public function isSuperAdmin() {
-        return true;
-    }
-
-    public function isOwner() {
-        return true;
-    }
 }

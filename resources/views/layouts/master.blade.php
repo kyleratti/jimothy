@@ -23,10 +23,10 @@
 
         <div class="main">
             @yield('main')
-        </div>
 
-        <footer class="footer show-for-medium">
-            Served by {{ config('app.codename') }}. Good boy.
-        </footer>
+            <footer class="footer show-for-medium">
+                Served by {{ config('app.codename') }}. Good boy.
+            </footer>
+        </div>
     </body>
 </html>

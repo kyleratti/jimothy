@@ -35,9 +35,17 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/logout', 'AuthController@logout')
         ->name('forum.user.logout');
 
-    // View boards
-    Route::get('/board/{iBoardID}', 'BoardController@showBoard')
+    // View board
+    Route::get('/{objBoard}', 'BoardController@showBoard')
         ->name('forum.board.show');
+
+    // View thread
+    Route::get('/{objBoard}/{objThread}/{iPageNum?}', 'ThreadController@showThread')
+        ->name('forum.thread.show');
+
+    // View users
+    Route::get('/user/show/{$iUserID}', 'ForumController@showFrontPage')
+        ->name('forum.user.show');
     
     // Require owner
     Route::group(['middleware' => 'isowner'], function() {

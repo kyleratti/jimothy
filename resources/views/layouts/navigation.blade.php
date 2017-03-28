@@ -4,10 +4,10 @@
     @if(Auth::check())
         <li><a href="{{ route('game.bans') }}">Bans</a></li>
         <li><a href="{{ route('game.top-players') }}">Top Players</a></li>
-        @if(Auth::user()->isAdmin())
+        @if(Auth::user()->hasRole('admin'))
             <li><a href="{{ route('game.admin.logs') }}">Logs</a></li>
         @endif
-        @if(Auth::user()->isOwner())
+        @if(Auth::user()->hasRole('owner'))
             <li><a href="{{ route('forum.admin') }}">Configuration</a></li>
         @endif
         <li><a href="{{ route('forum.user.logout') }}">Logout</a></li>
