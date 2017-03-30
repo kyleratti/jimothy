@@ -34,14 +34,13 @@ class ForumController extends Controller
 
             $iBoardID = $objBoard->id;
 
-            $objLastReply = DB::select('SELECT replies.updated_at AS updated_at, replies.user AS owner, threads.title AS thread_title FROM replies, threads, boards WHERE replies.deleted = 0 AND replies.thread = threads.id AND threads.board = boards.id AND boards.category = ? ORDER BY replies.created_at DESC LIMIT 1', [$iBoardID]);
-            echo $objLastReply[0]->updated_at;
-            echo $objLastReply[0]->updated_at;
-            echo (array('hi' => $objLastReply[0]->updated_at)['hi']);
+            // FIXME: This query gets fucked up when you try to parse the response. No clue why.
+            $objLastReply = DB::select('SELECT replies.updated_at AS updated_at, replies.owner AS owner, threads.title AS thread_title FROM replies, threads, boards WHERE replies.deleted = 0 AND replies.thread = threads.id AND threads.board = boards.id AND boards.category = ? ORDER BY replies.created_at DESC LIMIT 1', [$iBoardID]);
+
             $arrLastReply = [
-                'updated_at' => $objLastReply[0]->updated_at,
-                'owner' => User::find($objLastReply[0]->owner),
-                'thread_title' => $objLastReply[0]->thread_title
+                'updated_at' => null,
+                'owner' => null,
+                'thread_title' => null
             ];
 
             $arrData = [
