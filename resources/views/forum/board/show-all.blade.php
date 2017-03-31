@@ -35,7 +35,11 @@
                     </div>
 
                     <div class="small-3 columns board-activity">
-                        <a href="#">{{ $objThisBoard['arrLastReply']['thread_title'] }}</a> @ 7:14pm <a href="#"><span class="fi-arrow-right go-newest-post"></span></a>
+                        @if($objThisBoard['iTotalReplies'] == 0 && $objThisBoard['iTotalThreads'] == 0)
+                            --
+                        @else
+                            <a href="#">{{ $objThisBoard['arrLastReply']['thread_title'] }}</a> @ 7:14pm <a href="#"><span class="fi-arrow-right go-newest-post"></span></a>
+                        @endif
                     </div>
                 </div>
             </div>
