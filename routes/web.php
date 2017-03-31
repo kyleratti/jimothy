@@ -36,11 +36,11 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('forum.user.logout');
 
     // View board
-    Route::get('/{objBoard}', 'BoardController@showBoard')
+    Route::get('/board/{objBoard}', 'BoardController@showBoard')
         ->name('forum.board.show');
 
     // View thread
-    Route::get('/{objBoard}/{objThread}/{iPageNum?}', 'ThreadController@showThread')
+    Route::get('/board/{objBoard}/{objThread}/{iPageNum?}', 'ThreadController@showThread')
         ->name('forum.thread.show');
 
     // View users
@@ -51,37 +51,33 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'isowner'], function() {
         // Home pages for configs
         Route::get('/admin', function() {
-           return redirect()->route('forum.admin.board');
+           return redirect()->route('forum.admin.boards');
         })->name('forum.admin');
 
-        Route::Get('/admin/board', function() {
-           return view('forum.admin.board');
-        })->name('forum.admin.board');
-
         // Board config
-        Route::get('/admin/board/boards', 'BoardController@showBoards')
-            ->name('forum.admin.board.boards');
+        Route::get('/admin/boards', 'BoardController@showBoards')
+            ->name('forum.admin.boards');
 
-        Route::post('/admin/board/boards/add', 'BoardController@createCategory')
-            ->name('forum.admin.board.boards.addCategory');
+        Route::post('/admin/boards/add', 'BoardController@createCategory')
+            ->name('forum.admin.boards.addCategory');
 
         // Group config
-        Route::get('/admin/board/groups', 'GroupController@showGroups')
-            ->name('forum.admin.board.groups');
+        Route::get('/admin/groups', 'GroupController@showGroups')
+            ->name('forum.admin.groups');
 
-        Route::post('/admin/board/groups/add', 'GroupController@addGroup')
-            ->name('forum.admin.board.groups.add');
+        Route::post('/admin/groups/add', 'GroupController@addGroup')
+            ->name('forum.admin.groups.add');
 
-        Route::get('/admin/board/groups/remove/{iGroupID}', 'GroupController@removeGroup')
-            ->name('forum.admin.board.groups.remove');
+        Route::get('/admin/groups/remove/{iGroupID}', 'GroupController@removeGroup')
+            ->name('forum.admin.groups.remove');
 
-        Route::get('/admin/board/groups/toggleEnabled/{iGroupID}', 'GroupController@toggleEnabled')
-            ->name('forum.admin.board.groups.toggleEnabled');
+        Route::get('/admin/groups/toggleEnabled/{iGroupID}', 'GroupController@toggleEnabled')
+            ->name('forum.admin.groups.toggleEnabled');
 
             // Permissions
-            Route::get('/admin/board/permissions', function() {
+            Route::get('/admin/permissions', function() {
                 return view('layouts.soon');
-            })->name('forum.admin.board.permissions');
+            })->name('forum.admin.permissions');
     });
 });
 
