@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Invisnik\LaravelSteamAuth\SteamAuth;
 use App\User;
+use App\Group;
 use Auth;
 
 class AuthController extends Controller
@@ -31,9 +32,9 @@ class AuthController extends Controller
                     ]);
 
                     if($user->id == 1)
-                        $user->assignRole('owner', 'superadmin', 'admin');
+                        $user->setUserGroup(Group::where('name', 'Owner')->first());
                     else
-                        $user->assignRole('guest');
+                        $user->setUserGroup(Group::where('id', 1)->first());
                 }
 
                 Auth::login($user, true);
