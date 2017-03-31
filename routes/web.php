@@ -74,10 +74,10 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/admin/groups/toggleEnabled/{iGroupID}', 'GroupController@toggleEnabled')
             ->name('forum.admin.groups.toggleEnabled');
 
-            // Permissions
-            Route::get('/admin/permissions', function() {
-                return view('layouts.soon');
-            })->name('forum.admin.permissions');
+        // Permissions
+        Route::get('/admin/permissions', function() {
+            return view('layouts.soon');
+        })->name('forum.admin.permissions');
     });
 });
 
