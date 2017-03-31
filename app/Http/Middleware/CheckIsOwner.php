@@ -19,7 +19,7 @@ class CheckIsOwner
     {
         $objUser = Auth::user();
 
-        if(!$objUser->hasRole('owner'))
+        if(!$objUser->isUserGroup('Owner'))
             return redirect()->route('forum.index');
 
         return $next($request);
