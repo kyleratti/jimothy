@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Thread;
 use Illuminate\Http\Request;
 use App\Board;
-use App\BoardCategory;
+use App\Category;
 
 class BoardController extends Controller
 {
     public function showBoards() {
-        $objCategories = BoardCategory::all();
+        $objCategories = Category::all();
         $objBoards = Board::all();
         $objCatBoards = array();
 
@@ -22,7 +22,7 @@ class BoardController extends Controller
             array_push($objCatBoards[$objBoard->category], $objBoard);
 
         return view('forum.admin.board.boards', [
-            'objCategories' => BoardCategory::all(),
+            'objCategories' => Category::all(),
             'objBoards' => Board::all(),
             'objCatBoards' => $objCatBoards,
         ]);
