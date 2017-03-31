@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Group;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -29,4 +31,17 @@ class User extends Authenticatable
      */
     protected $hidden = [
     ];
+
+    public function setUserGroup(Group $objGroup) {
+        $this->group = $objGroup->id;
+        $this->save();
+    }
+
+    public function getUserGroup() {
+        return Group::where('id', $this->group)->limit(1)->first();
+    }
+
+    public function isUserGroup($strGroupName) {
+        return $this->getUserGroup()->name == $strGroupName;
+    }
 }
