@@ -185,6 +185,7 @@ return [
          * Custom stuff
          */
         Invisnik\LaravelSteamAuth\SteamServiceProvider::class,
+        Kodeine\Acl\AclServiceProvider::class,
 
     ],
 
