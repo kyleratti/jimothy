@@ -21,7 +21,7 @@ class User extends Authenticatable
         'steam_name',
         'email',
         'avatar',
-        'group',
+        'level',
     ];
 
     /**
@@ -31,17 +31,4 @@ class User extends Authenticatable
      */
     protected $hidden = [
     ];
-
-    public function setUserGroup(Group $objGroup) {
-        $this->group = $objGroup->id;
-        $this->save();
-    }
-
-    public function getUserGroup() {
-        return Group::where('id', $this->group)->limit(1)->first();
-    }
-
-    public function isUserGroup($strGroupName) {
-        return $this->getUserGroup()->name == $strGroupName;
-    }
 }

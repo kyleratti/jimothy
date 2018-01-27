@@ -28,13 +28,14 @@ class AuthController extends Controller
                     $user = User::create([
                         'steam64' => $info->steamID64,
                         'steam_name' => $info->personaname,
-                        'avatar' => $info->avatarfull
+                        'avatar' => $info->avatarfull,
+                        'level' => 5,
                     ]);
 
-                    if($user->id == 1)
-                        $user->setUserGroup(Group::where('name', 'Owner')->first());
-                    else
-                        $user->setUserGroup(Group::where('id', 1)->first());
+                    if($user->id == 1) {
+                        $user->level = 1;
+                        $user->save();
+                    }
                 }
 
                 Auth::login($user, true);

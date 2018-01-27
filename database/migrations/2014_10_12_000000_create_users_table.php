@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('steam_name')->unique()->index();
             $table->string('email')->unique()->nullable()->index();
             $table->string('avatar');
+            $table->integer('level')->unsigned()->index();
             $table->rememberToken();
             $table->timestamps();
         });
