@@ -19,7 +19,7 @@ class CheckIsAdmin
     {
         $objUser = Auth::user();
 
-        if(!$objUser->isUserGroup('Admin'))
+        if($objUser->level > 3)
             return redirect()->route('forum.index');
 
         return $next($request);

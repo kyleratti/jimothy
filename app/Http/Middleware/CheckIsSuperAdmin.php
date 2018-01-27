@@ -19,7 +19,7 @@ class CheckIsSuperAdmin
     {
         $objUser = Auth::user();
 
-        if(!$objUser->isUserGroup('Super Admin'))
+        if(!$objUser->level > 2)
             return redirect()->route('forum.index');
 
         return $next($request);
