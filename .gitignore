@@ -18,3 +18,4 @@ bootstrap/cache/
 .rocketeer/
 database/migrations/.gitkeep
 storage/database.db
+storage/dev.db
