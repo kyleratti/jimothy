@@ -49,4 +49,8 @@ class Thread extends Model
     {
         return 'slug';
     }
+
+    public function owner() {
+        return $this->belongsTo('App\User', 'id', 'owner');
+    }
 }

@@ -151,7 +151,7 @@ footer, .footer {
   border-bottom: 1px solid black;
 }
 
-.board:hover {
+.board:hover, .thread:hover {
   background-color: #ffe9e9;
 }
 
@@ -178,4 +178,19 @@ a:hover {
 }
 
 .go-newest-post {
+}
+
+.threads {
+  border: 1px solid black;
+  margin: 0.75em;
+}
+
+.threads-heading {
+  background-color: black;
+  color: white;
+  border-bottom: 1px solid black;
+}
+
+.thread-last-reply {
+  text-align: right;
 }

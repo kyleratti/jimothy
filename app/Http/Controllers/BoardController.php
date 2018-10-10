@@ -6,6 +6,7 @@ use App\Thread;
 use Illuminate\Http\Request;
 use App\Board;
 use App\Category;
+use App\Reply;
 
 class BoardController extends Controller
 {
@@ -39,15 +40,33 @@ class BoardController extends Controller
                 ['deleted', false]
             ])->get();
 
+            $arrThreads = [];
+
             $objThreads = Thread::where([
                 ['board', $iBoardID],
                 ['deleted', false]
             ])->get();
 
+            foreach($objThreads as $objThread) {
+                $objLastReply = Reply::where([
+                    ['thread', $objThread->id]
+                ])->first();
+
+                var_dump($objLastReply);
+
+                $objLastResponder = $objLastReply ? $objLastReply->owner : null;
+
+                $arrThreads[] = [
+                    'thread' => $objThread,
+                    'last_reply' => $objLastReply,
+                    'last_responder' => $objLastResponder,
+                ];
+            }
+
             return view('forum.board.show', [
                 'objBoard' => $objBoard,
                 'objStickyThreads' => $objStickyThreads,
-                'objThreads' => $objThreads
+                'objThreads' => $arrThreads
             ]);
         }
 

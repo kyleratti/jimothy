@@ -34,14 +34,15 @@ class ForumController extends Controller
 
             $iBoardID = $objBoard->id;
 
-            // FIXME: This query gets fucked up when you try to parse the response. No clue why.
-            $objLastReply = DB::select('SELECT replies.updated_at AS updated_at, replies.owner AS owner, threads.title AS thread_title FROM replies, threads, boards WHERE replies.deleted = 0 AND replies.thread = threads.id AND threads.board = boards.id AND boards.category = ? ORDER BY replies.created_at DESC LIMIT 1', [$iBoardID]);
+            $objLastReply = DB::select('SELECT replies.updated_at AS updated_at, replies.owner AS reply_owner, threads.title AS thread_title FROM replies, threads, boards WHERE replies.deleted = 0 AND replies.thread = threads.id AND threads.board = boards.id AND boards.category = ? ORDER BY replies.created_at DESC LIMIT 1', [$iBoardID]);
 
-            $arrLastReply = [
-                'updated_at' => null,
-                'owner' => null,
-                'thread_title' => null
-            ];
+            if(count($objLastReply) === 1) {
+                $arrLastReply = [
+                    'updated_at' => $objLastReply[0]->updated_at,
+                    'owner' => $objLastReply[0]->reply_owner,
+                    'thread_title' => $objLastReply[0]->thread_title,
+                ];
+            }
 
             $arrData = [
                 'objBoard' => $objBoard,

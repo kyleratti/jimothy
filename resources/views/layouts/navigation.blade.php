@@ -8,7 +8,7 @@
             <li><a href="{{ route('game.admin.logs') }}">Logs</a></li>
         @endif
         @if(Auth::user()->level <= 1)
-            <li><a href="{{ route('forum.admin') }}">Configuration</a></li>
+            <li><a href="{{ route('forum.admin') }}">Admin</a></li>
         @endif
         <li><a href="{{ route('forum.user.logout') }}">Logout</a></li>
     @else

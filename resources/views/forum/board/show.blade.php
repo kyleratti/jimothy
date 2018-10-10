@@ -14,48 +14,29 @@
     @endif
 
     <div class="threads">
-        @if($objThreads->count() <= 0)
+        @if(count($objThreads) <= 0)
             No threads found
         @else
-            <div class="threads-heading">
-                <div class="row">
-                    <div class="small-8 columns">
-                        Title
-                    </div>
-
-                    <div class="small-2 columns">
-                        Last Post By
-                    </div>
-
-                    <div class="small-2 columns">
-                        Views
-                    </div>
-                </div>
-            </div>
-
             <div class="threads-list">
                 @foreach($objThreads as $objThread)
-                    @php
-                        $objLastReply = App\Reply::where([
-                            ['thread', $objThread->id]
-                        ])->first();
-
-                        $objLastResponder = App\User::where([
-                            ['id', $objLastReply->user]
-                        ])->first();
-                    @endphp
-                    <div class="row">
+                    <div class="row thread">
                         <div class="small-8 columns thread-title">
-                            <a href="{{ route('forum.thread.show', ['objBoard' => $objBoard, 'objThread' => $objThread]) }}">{{ $objThread->title }}</a>
+                            <div style="width: 100%;display: block;">
+                                    <a href="{{ route('forum.thread.show', ['objBoard' => $objBoard, 'objThread' => $objThread['thread']]) }}">{{ $objThread['thread']->title }}</a>
+                            </div>
+                            <div style="width: 100%;display: block;">
+                            </div>
                         </div>
 
-                        <div class="small-2 columns thread-last-reply">
-                            <a href="{{ route('forum.user.show', ['iUserID' => $objLastResponder->id]) }}">{{ $objLastResponder->steam_name }}</a>
-                        </div>
+                        @if(isset($objThread['last_reply']))
+                            <div class="small-4 columns thread-last-reply">
+                                <a href="#">{{ $objThread['last_reply']->created_at->diffForHumans() }}</a> by <a href="{{ route('forum.user.show', ['iUserID' => $objThread['last_reply']->id]) }}">{{ $objThread['last_reply']->owner->steam_name }}</a>
+                            </div>
+                        @else
+                            <div class="small-4 columns thread-last-reply">
 
-                        <div class="small-2 columns thread-views">
-                            {{ random_int(0, 500) }}
-                        </div>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
             </div>

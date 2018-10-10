@@ -35,6 +35,20 @@ class AuthController extends Controller
                     if($user->id == 1) {
                         $user->level = 1;
                         $user->save();
+
+                        $objThreads = \App\Thread::all();
+
+                        foreach($objThreads as $objThread) {
+                            $objThread->owner = $user;
+                            $objThread->save();
+                        }
+
+                        $objReplies = \App\Reply::all();
+
+                        foreach($objReplies as $objReply) {
+                            $objReply->owner = $user;
+                            $objReply->save();
+                        }
                     }
                 }
 

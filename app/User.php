@@ -31,4 +31,12 @@ class User extends Authenticatable
      */
     protected $hidden = [
     ];
+
+    public function threads() {
+        return $this->hasMany('App\Thread');
+    }
+
+    public function replies() {
+        return $this->hasMany('App\Reply', 'owner', 'id');
+    }
 }

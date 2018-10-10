@@ -14,9 +14,21 @@ class ThreadTableSeeder extends Seeder
     public function run()
     {
         Thread::create([
-            'title' => 'Aaron is the worst ever',
+            'title' => 'Everything here is a WIP',
             'board' => 1,
-            'owner' => 1
+            'owner' => 1,
+        ]);
+
+        Thread::create([
+            'title' => 'No, seriously',
+            'board' => 1,
+            'owner' => 1,
+        ]);
+
+        Thread::create([
+            'title' => 'Very broken',
+            'board' => 1,
+            'owner' => 1,
         ]);
     }
 }

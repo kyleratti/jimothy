@@ -25,4 +25,8 @@ class Reply extends Model
      */
     protected $hidden = [
     ];
+
+    public function owner() {
+        return $this->belongsTo('App\User', 'id', 'owner');
+    }
 }
